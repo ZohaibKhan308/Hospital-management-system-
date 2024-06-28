@@ -1,0 +1,148 @@
+include <iostream>
+using namespace std;
+
+class Welcome {
+public:
+    void login() {
+        cout << "\t\t* * * * * * * * * * * * * * * * * * * * * * *" << endl;
+        cout << "\t\t* * * * * * * * * * * * * * * * * * * * * * *" << endl;
+        cout << "\t\t* *                                       * *" << endl;
+        cout << "\t\t* *                                       * *" << endl;
+        cout << "\t\t* *     HOSPITAL MANAGEMENT SYSTEM        * *" << endl;
+        cout << "\t\t* *                                       * *" << endl;
+        cout << "\t\t* *                                       * *" << endl;
+        cout << "\t\t* *                                       * *" << endl;
+        cout << "\t\t* * * * * * * * * * * * * * * * * * * * * * *" << endl;
+        cout << "\t\t* * * * * * * * * * * * * * * * * * * * * * *" << endl;
+    }
+};
+
+class Patient {
+public:
+    string name;
+    int age;
+    string gender;
+    string disease;
+
+    Patient(string i_name, int i_age, string i_gender, string i_disease) {
+        name = i_name;
+        age = i_age;
+        gender = i_gender;
+        disease = i_disease;
+    }
+
+    void display() {
+        cout << "\t\t* PATIENT CLASS *\n\n";
+        cout << "NAME: " << name << "\tAGE: " << age << "\t\tGENDER: " << gender << "\tDISEASE: " << disease << endl;
+    }
+};
+
+class Doctor {
+public:
+    string doctorName;
+    string qualification;
+    int experience;
+
+    Doctor(string i_doctorName, string i_qualification, int i_experience) {
+        doctorName = i_doctorName;
+        qualification = i_qualification;
+        experience = i_experience;
+    }
+
+    void display() {
+        cout << "\t\t* DOCTOR CLASS *\n\n";
+        cout << "DOCTOR NAME: " << doctorName << "\tQUALIFICATION: " << qualification << "\tEXPERIENCE: " << experience << " years" << endl;
+    }
+};
+
+class Appointment {
+public:
+    int appointmentDate;
+
+    Appointment(int i_appointmentDate) {
+        appointmentDate = i_appointmentDate;
+    }
+
+    void display() {
+        cout << "\t\t* APPOINTMENT CLASS *\n\n";
+        cout << "APPOINTMENT DATE: " << appointmentDate << endl;
+    }
+};
+
+class MedicalStore {
+public:
+    string medicineName;
+    int medicinePrice;
+
+    MedicalStore(string i_medicineName, int i_medicinePrice) {
+        medicineName = i_medicineName;
+        medicinePrice = i_medicinePrice;
+    }
+
+    void display() {
+        cout << "\t\t* MEDICAL STORE *\n\n";
+        cout << "MEDICINE NAME: " << medicineName << "\tMEDICINE PRICE: " << medicinePrice << endl;
+    }
+};
+
+class TotalCost {
+public:
+    int totalCosts;
+
+    TotalCost(int i_totalCosts) {
+        totalCosts = i_totalCosts;
+    }
+
+    void display() {
+        cout << "\t\t* TOTAL COSTS *\n\n";
+        cout << "TOTAL COSTS: " << totalCosts << endl;
+    }
+};
+
+int main() {
+    Welcome obj;
+    obj.login();
+
+    int choice;
+    start:
+    cout << "\nSelect an option to display information:\n";
+    cout << "1. Patient\n";
+    cout << "2. Doctor\n";
+    cout << "3. Appointment\n";
+    cout << "4. Medical Store\n";
+    cout << "5. Total Cost\n";
+    cout << "Enter your choice: ";
+    cin >> choice;
+
+    switch (choice) {
+        case 1: {
+            Patient obj1("AFZAAL", 19, "MALE", "TEMPERATURE");
+            obj1.display();
+            break;
+        }
+        case 2: {
+            Doctor obj2("ZOHAIB", "MBBS", 20);
+            obj2.display();
+            break;
+        }
+        case 3: {
+            Appointment obj3(2025);
+            obj3.display();
+            break;
+        }
+        case 4: {
+            MedicalStore obj4("PANADOL", 250);
+            obj4.display();
+            break;
+        }
+        case 5: {
+            TotalCost obj5(5000);
+            obj5.display();
+            break;
+        }
+        default:
+            cout << "Invalid choice!" << endl;
+    }
+goto start;
+    return 0;
+}
